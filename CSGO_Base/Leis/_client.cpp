@@ -217,10 +217,9 @@ void cLeis::HUD_Redraw()
 
 void cLeis::CL_AimbotMove( CUserCmd* cmd )
 {
-	if ( g_Cheat.IsLocalWeaponUseAmmo() )
+	if ( g_Cheat.IsLocalWeaponUseAmmo() && cvar.weapon_settings[cvar.wpn].aim_enable)
 	{
-		if ( cvar.weapon_settings[cvar.wpn].aim_enable )
-			g_Aimbot.Aimbot( cmd );
+		g_Aimbot.Aimbot( cmd );
 	}
 }
 
@@ -245,13 +244,5 @@ void cLeis::CL_CreateMove( float flInputSampleTime , CUserCmd* cmd )
 
 		if( cvar.weapon_settings[cvar.wpn].trigger_mode )
 			g_Trigger.TriggerBot( cmd );
-	}
-
-	if ( cvar.misc_Bhop )
-	{
-		if ( cmd->buttons & IN_JUMP && !( g_Local.iFlags & FL_ONGROUND ) )
-		{
-			cmd->buttons &= ~IN_JUMP;
-		}
 	}
 }

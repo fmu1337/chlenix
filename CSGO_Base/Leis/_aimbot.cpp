@@ -75,10 +75,7 @@ int cAimbot::GetPlayerFov( int iIndex )
 	else
 		iFovVal = cvar.weapon_settings[cvar.wpn].aim_fov;
 
-	int base_fov = pow( 60 + iFovVal , 2 ) * 90;
-	int iFov = (int)( base_fov / ( g_Player[iIndex].fDistance * g_Local.iFOV ) );
-
-	return iFov;
+	return (int)(pow(60 + iFovVal, 2) * 90 / (g_Player[iIndex].fDistance * g_Local.iFOV));
 }
 
 bool cAimbot::CheckFov( Vector vScreen , int iFov )

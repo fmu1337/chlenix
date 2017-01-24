@@ -97,7 +97,6 @@ void cMenu::InitializeMenu()
 	}
 	if ( M_EntryPos == 3 )
 	{
-		AddSubMenu( CFG_MISC_BHOP , &cvar.misc_Bhop , 0 , 1 , 1 );
 		AddSubMenu( CFG_MISC_LOADSETTINGS , &cvar.misc_LoadSettings , 0 , 1 , 1 );
 		AddSubMenu( CFG_MISC_SAVESETTINGS , &cvar.misc_SaveSettings , 0 , 1 , 1 );
 	}

@@ -116,7 +116,7 @@ BOOL WINAPI DllMain( HINSTANCE hinstDLL , DWORD fdwReason , LPVOID lpReserved )
 		BaseDir = AllocChar( MAX_PATH );
 		
 		SHGetFolderPathA( NULL , CSIDL_PROFILE , NULL , 0 , BaseDir );
-		strcat( BaseDir , XorStr( "\\AppData\\Roaming\\" ) );
+		strcat_s( BaseDir , MAX_PATH, XorStr( "\\AppData\\Roaming\\" ) );
 				
 		CreateThread( NULL , 0 , CheatThread , 0 , 0 , NULL );
 

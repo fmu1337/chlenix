@@ -99,9 +99,6 @@ float CalcDistPlayerScreen( Vector2D vSceenPos , Vector2D vPlayerPosSceen );
 #define CFG_RADAR_X XorStr("radar.x") //0xA0,8,0x75256015>("\xD2\xC0\xC6\xC2\xD6\x8B\xDE"+0x75256015).s
 #define CFG_RADAR_Y XorStr("radar.y") //0x77,8,0x50424BB9>("\x05\x19\x1D\x1B\x09\x52\x04"+0x50424BB9).s
 #define CFG_RADAR_VISIBLE XorStr("radar.visible") //0x16,14,0x7EE57E34>("\x64\x76\x7C\x78\x68\x35\x6A\x74\x6D\x76\x42\x4D\x47"+0x7EE57E34).s
-
-#define CFG_MISC_BHOP XorStr("misc.bhop") //0xA4,10,0x752DF087>("\xC9\xCC\xD5\xC4\x86\xCB\xC2\xC4\xDC"+0x752DF087).s
-
 #define CFG_SKIN_CT_MODEL XorStr("knife.ct.model") //0x4A,15,0x68B8F1AE>("\x21\x25\x25\x2B\x2B\x61\x33\x25\x7C\x3E\x3B\x31\x33\x3B"+0x68B8F1AE).s
 #define CFG_SKIN_CT_SKIN XorStr("knife.ct.skin") //0x56,14,0xB7F3B4C0>("\x3D\x39\x31\x3F\x3F\x75\x3F\x29\x70\x2C\x0B\x08\x0C"+0xB7F3B4C0).s
 #define CFG_SKIN_TT_MODEL XorStr("knife.tt.model") //0x69,15,0x71201F48>("\x02\x04\x02\x0A\x08\x40\x1B\x04\x5F\x1F\x1C\x10\x10\x1A"+0x71201F48).s

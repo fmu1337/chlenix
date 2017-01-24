@@ -27,6 +27,46 @@ void cRadar::DrawRadarPlayer( int iIndex )
 	int screenx = 0;
 	int screeny = 0;
 
+	switch (g_Player[iIndex].iTeam)
+	{
+		case TEAM_TT:
+		{
+			if (g_Player[iIndex].bVisible && cvar.rad_visible == 1)
+			{
+				r = 0; g = 255; b = 0;
+			}
+			else if (g_Player[iIndex].bVisible && g_Local.iTeam != g_Player[iIndex].iTeam && cvar.rad_visible == 2)
+			{
+				r = 0; g = 255; b = 0;
+			}
+			else
+			{
+				r = 255; g = 64; b = 64;
+			}
+
+			break;
+		}
+		case TEAM_CT:
+		{
+			if (g_Player[iIndex].bVisible && cvar.rad_visible == 1)
+			{
+				r = 0; g = 255; b = 0;
+			}
+			else if (g_Player[iIndex].bVisible && g_Local.iTeam != g_Player[iIndex].iTeam && cvar.rad_visible == 2)
+			{
+				r = 0; g = 255; b = 0;
+			}
+			else
+			{
+				r = 0; g = 164; b = 255;
+			}
+
+			break;
+		}
+		default: return;
+	}
+
+	/*
 	if ( g_Player[iIndex].iTeam == TEAM_TT )
 	{
 		if ( g_Player[iIndex].bVisible && cvar.rad_visible == 1 )
@@ -61,6 +101,7 @@ void cRadar::DrawRadarPlayer( int iIndex )
 	{
 		return;
 	}
+	*/
 
 	CalcRadarPoint( g_Player[iIndex].vOrigin , screenx , screeny );
 

@@ -89,7 +89,7 @@ bool cTrigger::CheckPlayerTriggerLine( int iIndex, CUserCmd* cmd )
 	AngleVectors( Angle , vecFor , vecRig , vecUp );
 
 	vecStart = g_Local.vEyeOrigin;
-	vecStop = vecStart + vecFor * MAX_TRACE_LENGTH;
+	vecStop = vecStart + vecFor * (float) MAX_TRACE_LENGTH;
 
 	UTIL_TraceLine( vecStart , vecStop , MASK_ALL , g_Local.pEntity , COLLISION_GROUP_PLAYER , &tr );
 

@@ -248,9 +248,7 @@ void cEsp::DrawPlayersESP( int iIndex )
 {
 	Vector vAimOriginPos;
 
-	bool aim_bone_fov = ( (bool)cvar.esp_aimbone || (bool)cvar.esp_drawfov );
-
-	if ( cvar.weapon_settings[cvar.wpn].aim_enable && aim_bone_fov &&
+	if ( cvar.weapon_settings[cvar.wpn].aim_enable && (cvar.esp_aimbone || cvar.esp_drawfov ) &&
 		 g_Player[iIndex].vAimOrigin.IsValid() && g_Player[iIndex].bAlive &&  g_Player[iIndex].iTeam != g_Local.iTeam )
 	{
 		if ( WorldToScreen( g_Player[iIndex].vAimOrigin , vAimOriginPos ) )

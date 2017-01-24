@@ -143,9 +143,7 @@ void cCvar::LoadCvarFromIni()
 	rad_x = ReadInt( CFG_RADAR , CFG_RADAR_X , 10 , IniPatch );
 	rad_y = ReadInt( CFG_RADAR , CFG_RADAR_Y , 310 , IniPatch );
 	rad_visible = ReadInt( CFG_RADAR , CFG_RADAR_VISIBLE , 1 , IniPatch );
-
-	misc_Bhop = ReadInt( CFG_MISC , CFG_MISC_BHOP , 1 , IniPatch );
-
+	
 	knife_ct_model = ReadInt( CFG_SKIN , CFG_SKIN_CT_MODEL , 0 , IniPatch );
 	knife_ct_skin = ReadInt( CFG_SKIN , CFG_SKIN_CT_SKIN , 0 , IniPatch );
 	knife_tt_model = ReadInt( CFG_SKIN , CFG_SKIN_TT_MODEL , 0 , IniPatch );
@@ -190,9 +188,7 @@ void cCvar::SaveCvarFromSet()
 	SaveInt( CFG_RADAR , CFG_RADAR_X , cvar.rad_x , IniPatch );
 	SaveInt( CFG_RADAR , CFG_RADAR_Y , cvar.rad_y , IniPatch );
 	SaveInt( CFG_RADAR , CFG_RADAR_VISIBLE , cvar.rad_visible , IniPatch );
-
-	SaveInt( CFG_MISC , CFG_MISC_BHOP , cvar.misc_Bhop , IniPatch );
-
+	
 	SaveCvarWeapon();
 }
 

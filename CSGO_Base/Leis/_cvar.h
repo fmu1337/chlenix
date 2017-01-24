@@ -68,8 +68,6 @@ public:
 	int rad_y;
 	int rad_visible;
 
-	int misc_Bhop;
-
 	int knife_ct_model;
 	int knife_ct_skin;
 	int knife_tt_model;
