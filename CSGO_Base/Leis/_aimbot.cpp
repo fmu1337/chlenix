@@ -270,9 +270,7 @@ void cAimbot::Aimbot( CUserCmd* cmd )
 			case 2:
 				if ( g_Player[iTargetID].bAimFov && !bAttack )
 					bAimAttack1 = true;
-				else if ( !g_Player[iTargetID].bAimFov && !bAttack )
-					bAimAttack1 = false;
-				else if ( !g_Player[iTargetID].bAimFov && bAttack )
+				else if (!g_Player[iTargetID].bAimFov)
 					bAimAttack1 = false;
 				
 				if ( bAimAttack1 && g_Player[iTargetID].bAimFov )

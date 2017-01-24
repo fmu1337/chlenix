@@ -104,7 +104,6 @@ void cCvar::LoadCvarFromIni()
 	esp_type = ReadInt( CFG_ESP , CFG_ESP_TYPE , 1 , IniPatch );
 	esp_size = ReadInt( CFG_ESP , CFG_ESP_SIZE , 5 , IniPatch );
 	esp_name = ReadInt( CFG_ESP , CFG_ESP_NAME , 0 , IniPatch );
-	esp_rank = ReadInt( CFG_ESP , CFG_ESP_RANK , 0 , IniPatch );
 
 	esp_w_weapon = ReadInt( CFG_ESP , CFG_ESP_W_WEAPON , 0 , IniPatch );
 	esp_w_grenade = ReadInt( CFG_ESP , CFG_ESP_W_GRENADE , 0 , IniPatch );
@@ -165,7 +164,6 @@ void cCvar::SaveCvarFromSet()
 	SaveInt( CFG_ESP , CFG_ESP_TYPE , cvar.esp_type , IniPatch );
 	SaveInt( CFG_ESP , CFG_ESP_SIZE , cvar.esp_size , IniPatch );
 	SaveInt( CFG_ESP , CFG_ESP_NAME , cvar.esp_name , IniPatch );
-	SaveInt( CFG_ESP , CFG_ESP_RANK , cvar.esp_rank , IniPatch );
 	SaveInt( CFG_ESP , CFG_ESP_W_WEAPON , cvar.esp_w_weapon , IniPatch );
 	SaveInt( CFG_ESP , CFG_ESP_W_GRENADE , cvar.esp_w_grenade , IniPatch );
 	SaveInt( CFG_ESP , CFG_ESP_BOMB , cvar.esp_bomb , IniPatch );

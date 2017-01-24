@@ -27,7 +27,7 @@ float CalcDistPlayerScreen( Vector2D vSceenPos , Vector2D vPlayerPosSceen );
 
 #define CFG_VERDANA XorStr("Verdana")
 
-#define CFG_LEIS_MESSAGE XorStr("=> VAGINIX V 2.2.8 <=")
+#define CFG_LEIS_MESSAGE XorStr("vaginEx")
 
 #define CFG_TRIGGER_ENABLED XorStr("triggerbot: enabled") //0x89,20,0x9CEAEFCE>("\xFD\xF8\xE2\xEB\xEA\xEB\xFD\xF2\xFE\xE6\xA9\xB4\xF0\xF8\xF6\xFA\xF5\xFF\xFF"+0x9CEAEFCE).s
 #define CFG_TRIGGER_DISABLED XorStr("triggerbot: disabled") //0x8D,21,0x8D23B19C>("\xF9\xFC\xE6\xF7\xF6\xF7\xE1\xF6\xFA\xE2\xAD\xB8\xFD\xF3\xE8\xFD\xFF\xF2\xFA\xC4"+0x8D23B19C).s
@@ -63,7 +63,6 @@ float CalcDistPlayerScreen( Vector2D vSceenPos , Vector2D vPlayerPosSceen );
 #define CFG_ESP_W_WEAPON XorStr("esp.w_weapon")
 #define CFG_ESP_W_GRENADE XorStr("esp.w_grenade")
 
-#define CFG_ESP_RANK XorStr("esp.rank") //0xCB,9,0x5CD89C9A>("\xAE\xBF\xBD\xE0\xBD\xB1\xBF\xB9"+0x5CD89C9A).s
 #define CFG_ESP_BOMB XorStr("esp.bomb") //0xDB,9,0xAD5C8510>("\xBE\xAF\xAD\xF0\xBD\x8F\x8C\x80"+0xAD5C8510).s
 #define CFG_ESP_BOMBTIMER XorStr("esp.bomb.timer") //0x81,15,0x43836571>("\xE4\xF1\xF3\xAA\xE7\xE9\xEA\xEA\xA7\xFE\xE2\xE1\xE8\xFC"+0x43836571).s
 

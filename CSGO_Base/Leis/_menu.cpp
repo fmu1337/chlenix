@@ -53,7 +53,6 @@ void cMenu::InitializeMenu()
 		AddSubMenu( CFG_ESP_TYPE , &cvar.esp_type , 1 , 2 , 1 );
 		AddSubMenu( CFG_ESP_SIZE , &cvar.esp_size , 0 , 10 , 1 );
 		AddSubMenu( CFG_ESP_NAME , &cvar.esp_name , 0 , 1 , 1 );
-		AddSubMenu( CFG_ESP_RANK , &cvar.esp_rank , 0 , 1 , 1 );
 		AddSubMenu( CFG_ESP_W_WEAPON , &cvar.esp_w_weapon , 0 , 1 , 1 );
 		AddSubMenu( CFG_ESP_W_GRENADE , &cvar.esp_w_grenade , 0 , 1 , 1 );
 		AddSubMenu( CFG_ESP_BOMB , &cvar.esp_bomb , 0 , 1 , 1 );

@@ -160,10 +160,9 @@ void cDrawing::DrawOutlineCoalBox( int x , int y , int w , int h , Color color ,
 
 void cDrawing::DrawHorBar( int x , int y , int w , int h , int val , Color color1 , Color color2 )
 {
-	int size = ( w * val ) / 100;
 	OutlinedRect( x , y , w , h , Color( 0 , 0 , 0 ) );
 	FillArea( x + 1 , y + 1 , w - 2 , h - 2 , color2 );
-	FillArea( x + 1 , y + 1 , size - 2 , h - 2 , color1 );
+	FillArea( x + 1 , y + 1 , ((w * val) / 100) - 2 , h - 2 , color1 );
 }
 
 void cDrawing::DrawVerBar( int x , int y , int w , int h , int val , Color color1 , Color color2 )

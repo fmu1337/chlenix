@@ -156,11 +156,7 @@ bool WINAPI CreateMove_ClientModeTable(float flInputSampleTime, CUserCmd* cmd)
 	{
 		g_Leis.CL_CreateMove(flInputSampleTime, cmd);
 
-		if (cvar.weapon_settings[cvar.wpn].aim_silent <= 0)
-		{
-			g_Leis.CL_AimbotMove(cmd);
-		}
-		else if (cvar.weapon_settings[cvar.wpn].aim_silent && g_Local.iShotsFired >= 1)
+		if (cvar.weapon_settings[cvar.wpn].aim_silent <= 0 || (cvar.weapon_settings[cvar.wpn].aim_silent && g_Local.iShotsFired >= 1))
 		{
 			g_Leis.CL_AimbotMove(cmd);
 		}
@@ -181,11 +177,9 @@ int WINAPI EmitSound1(IRecipientFilter& filter, int iEntIndex, int iChannel, con
 	{
 		IClientEntity* pEnt = g_pClientEntList->GetClientEntity(iEntIndex);
 
-		if (pEnt && g_Player[iEntIndex].iTeam != g_Local.iTeam)
+		if (pEnt && g_Player[iEntIndex].iTeam != g_Local.iTeam && (!GetVisible(g_Local.vEyeOrigin, *pOrigin)))
 		{
-
-			if (!GetVisible(g_Local.vEyeOrigin, *pOrigin))
-				g_Sound.AddSound(*pOrigin);
+			g_Sound.AddSound(*pOrigin);
 		}
 	}
 
@@ -205,10 +199,9 @@ int WINAPI EmitSound2(IRecipientFilter& filter, int iEntIndex, int iChannel, con
 	{
 		IClientEntity* pEnt = g_pClientEntList->GetClientEntity(iEntIndex);
 
-		if (pEnt && g_Player[iEntIndex].iTeam != g_Local.iTeam)
+		if (pEnt && g_Player[iEntIndex].iTeam != g_Local.iTeam && (!GetVisible(g_Local.vEyeOrigin, *pOrigin)))
 		{
-			if (!GetVisible(g_Local.vEyeOrigin, *pOrigin))
-				g_Sound.AddSound(*pOrigin);
+			g_Sound.AddSound(*pOrigin);
 		}
 	}
 
@@ -328,15 +321,20 @@ void WINAPI DrawModelExecute(PVOID pContext, const DrawModelState_t& pState, con
 
 						g_pModelRender->DrawModelExecute(pContext, pState, pInfo, pCustomBoneToWorld);
 
-						if (cvar.esp_vis_chams == 1)
+						switch (cvar.esp_vis_chams)
 						{
-							ForceMaterial(TeamVisibleColor, visible_flat);
-							visible_flat->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, false);
-						}
-						else if (cvar.esp_vis_chams >= 2)
-						{
-							ForceMaterial(TeamVisibleColor, visible_tex);
-							visible_tex->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, false);
+							case 1:
+							{
+								ForceMaterial(TeamVisibleColor, visible_flat);
+								visible_flat->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, false);
+								break;
+							}
+							case 2:
+							{
+								ForceMaterial(TeamVisibleColor, visible_tex);
+								visible_tex->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, false);
+								break;
+							}
 						}
 					}
 				}
@@ -348,17 +346,8 @@ void WINAPI DrawModelExecute(PVOID pContext, const DrawModelState_t& pState, con
 			if (strModelName.find("models/weapons/ct_arms") != std::string::npos || strModelName.find("models/weapons/t_arms") != std::string::npos)
 			{
 				auto pMaterial = g_pMaterialSystem->FindMaterial(strModelName.c_str(), "Model textures");
-
-				if (cvar.esp_vis_hands == 1)
-					pMaterial->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW, true);
-				else
-					pMaterial->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW, false);
-
-				if (cvar.esp_vis_hands == 2)
-					pMaterial->SetMaterialVarFlag(MATERIAL_VAR_WIREFRAME, true);
-				else
-					pMaterial->SetMaterialVarFlag(MATERIAL_VAR_WIREFRAME, false);
-
+				pMaterial->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW, (cvar.esp_vis_hands == 1) ? true : false);
+				pMaterial->SetMaterialVarFlag(MATERIAL_VAR_WIREFRAME, (cvar.esp_vis_hands == 2) ? true : false);
 				g_pModelRender->ForcedMaterialOverride(pMaterial);
 			}
 		}

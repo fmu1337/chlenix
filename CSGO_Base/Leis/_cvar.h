@@ -30,7 +30,6 @@ public:
 	int esp_type;
 	int esp_size;
 	int esp_name;
-	int esp_rank;
 	int esp_w_weapon;
 	int esp_w_grenade;
 	int esp_bomb;

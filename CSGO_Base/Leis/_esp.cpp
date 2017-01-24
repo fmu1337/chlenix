@@ -99,43 +99,6 @@ void cEsp::DrawHealthArmorAmmoWpnEsp( int x , int y , int iIndex , Color color )
 	}
 }
 
-int GetRank( int Index )
-{
-	DWORD dwTemp = *(PDWORD)( (DWORD)offset.dwClientModule + CSPlayerResource );
-	return *(PINT)( (DWORD)dwTemp + m_iCompetitiveRanking + (int)Index * 4 );
-}
-
-enum
-{
-	NotRanked ,
-	SilverI ,
-	SilverII ,
-	SilverIII ,
-	SilverIV ,
-	SilverElite ,
-	SilverEliteMaster ,
-	GoldNovaI ,
-	GoldNovaII ,
-	GoldNovaIII ,
-	GoldNovaMaster ,
-	MasterGuardianI ,
-	MasterGuardianII ,
-	MasterGuardianElite ,
-	DistinguishedMasterGuardian ,
-	LegendaryEagle ,
-	LegendaryEagleMaster ,
-	SupremeMasterFirstClass ,
-	TheGlobalElite
-};
-
-char* rank_names[] =
-{
-	"NotRanked","SilverI","SilverII","SilverIII","SilverIV","SilverElite","SilverEliteMaster",
-	"GoldNovaI","GoldNovaII","GoldNovaIII","GoldNovaMaster","MasterGuardianI",
-	"MasterGuardianII","MasterGuardianElite","DistinguishedMasterGuardian",
-	"LegendaryEagle","LegendaryEagleMaster","SupremeMasterFirstClass","TheGlobalElite"
-};
-
 void cEsp::DrawAllPlayerEsp( int iIndex )
 {
 	Color TeamColor = GetPlayerTeamColor( iIndex );
@@ -182,28 +145,7 @@ void cEsp::DrawAllPlayerEsp( int iIndex )
 
 				if ( cvar.esp_name )
 				{
-					byte offset_draw = 13;
-
-					if ( cvar.esp_rank && GetRank( iIndex ) )
-						offset_draw = 26;
-
-					g_FontEsp.DrawString( (int)vLineOrigin.x , (int)vScreenHead.y - offset_draw , TeamColor , true , g_Player[iIndex].name );
-				}
-
-				if ( cvar.esp_rank )
-				{
-					byte rank_index = GetRank( iIndex );
-
-					byte offset_draw = 26;
-
-					if ( cvar.esp_name )
-						offset_draw = 13;
-
-					if ( rank_index )
-					{
-
-						g_FontEsp.DrawString( (int)vLineOrigin.x , (int)vScreenHead.y - offset_draw , TeamColor , true , rank_names[rank_index] );
-					}
+					g_FontEsp.DrawString( (int)vLineOrigin.x , (int)vScreenHead.y - 13 , TeamColor , true , g_Player[iIndex].name );
 				}
 
 				int iHpAmY = 1;
